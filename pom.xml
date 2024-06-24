@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>sistema_corridas</artifactId>
+	<artifactId>CorridasAutomobilisticas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sistema de corridas de carros</name>
 	<description>sistema de corridas de carros</description>

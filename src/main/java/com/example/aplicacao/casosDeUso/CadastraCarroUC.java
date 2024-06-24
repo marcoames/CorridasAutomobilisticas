@@ -7,11 +7,11 @@ import com.example.negocio.servicos.ServicoCarro;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CadastraCarrosUC {
+public class CadastraCarroUC {
     private ServicoCarro servicoCarro;
 
     //@Autowired
-    public CadastraCarrosUC(ServicoCarro servicoCarro) {
+    public CadastraCarroUC(ServicoCarro servicoCarro) {
         this.servicoCarro = servicoCarro;
     }
     

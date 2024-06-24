@@ -17,6 +17,8 @@ target/
 *.war
 *.ear
 
+*.ds_store
+
 # Maven files
 mvnw
 mvnw.cmd

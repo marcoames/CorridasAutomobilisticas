@@ -1,34 +1,24 @@
 package com.example.adaptadores.repositorios;
 
 import java.util.List;
-
+import org.springframework.stereotype.Repository;
 import com.example.negocio.entidades.Carro;
 import com.example.negocio.repositorios.ICarroRepository;
 
-//import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Component
-public class CarroRepository implements ICarroRepository {
-    private ICarroCRUD carroCRUD;
+@Repository
+public interface CarroRepository extends JpaRepository<Carro, Long>, ICarroRepository {
 
-    //@Autowired
-    public CarroRepository(ICarroCRUD carroCRUD) {
-        this.carroCRUD = carroCRUD;
-
-    }
-    
-    public List<Carro> todos() {
-        List<Carro> resp = carroCRUD.findAll();
-        return resp;
+    @Override
+    default List<Carro> todos() {
+        return findAll();
     }
 
-    public void removeTodos(){
-        carroCRUD.deleteAll();
-    }
-
-    public boolean cadastra(Carro carro){
-        carroCRUD.save(carro);
+    @Override
+    default boolean cadastra(Carro carro) {
+        save(carro);
         return true;
     }
 }
+

@@ -1,52 +1,62 @@
 package com.example.negocio.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Carro {
     @Id
-    private String placa;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String modelo;
-    @Column(name = "anofabricacao")
-    private int anoFabricacao;
-    private String equipe;
+    private String marca;
+    private int ano;
 
-    public Carro(String placa, String modelo, int anoFabricacao, String equipe) {
-        this.placa = placa;
-        this.modelo = modelo;
-        this.anoFabricacao = anoFabricacao;
-        this.equipe = equipe;
-        this.eventos = new ArrayList<>();
-    }
-        // Necessário para JPA
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "carro_piloto",
+            joinColumns = @JoinColumn(name = "carro_id"),
+            inverseJoinColumns = @JoinColumn(name = "piloto_id")
+    )
+    private Piloto piloto;
+
     public Carro() {}
 
-    @OneToMany(fetch = FetchType.EAGER,
-               mappedBy = "carro",
-               cascade = CascadeType.ALL)
-    private List<Evento> eventos;
+    public Carro(String modelo, String marca, int ano) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+    }
 
-    public String getPlaca() {
-        return placa;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getModelo() {
         return modelo;
     }
 
-    public int getAnoFabricacao() {
-        return anoFabricacao;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getEquipe() {
-        return equipe;
+    public String getMarca() {
+        return marca;
     }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
 }
-
