@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Frontend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Racing API Frontend</h1>
+
+        <!-- Pilotos Section -->
+        <div id="pilotos" class="section">
+            <h2>Pilotos</h2>
+            <button class="btn" onclick="fetchPilotos()">Get Pilotos</button>
+            <ul id="pilotoList" class="list"></ul>
+        </div>
+
+        <!-- Carros Section -->
+        <div id="carros" class="section">
+            <h2>Carros</h2>
+            <button class="btn" onclick="fetchCarros()">Get Carros</button>
+            <ul id="carroList" class="list"></ul>
+        </div>
+
+        <!-- Corridas Section -->
+        <div id="corridas" class="section">
+            <h2>Corridas</h2>
+            <button class="btn" onclick="fetchCorridas()">Get Corridas</button>
+            <ul id="corridaList" class="list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
