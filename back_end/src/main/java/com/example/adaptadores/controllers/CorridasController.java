@@ -7,11 +7,7 @@ import com.example.aplicacao.casosDeUso.CadastraCorridaUC;
 import com.example.aplicacao.casosDeUso.CadastraPilotoUC;
 import com.example.aplicacao.casosDeUso.ConsultaCarrosUC;
 import com.example.aplicacao.casosDeUso.ConsultaCorridasUC;
-// import com.example.aplicacao.casosDeUso.ConsultaEstatisticasUC;
-// import com.example.aplicacao.casosDeUso.ConsultaPerformanceUC;
 import com.example.aplicacao.casosDeUso.ConsultaPilotosUC;
-import com.example.aplicacao.dtos.EstatisticasDTO;
-import com.example.aplicacao.dtos.PerformanceDTO;
 import com.example.negocio.entidades.Carro;
 import com.example.negocio.entidades.Corrida;
 import com.example.negocio.entidades.Piloto;
@@ -26,25 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/ctrlCorridas")
-public class CtrlCorridasController {
+public class CorridasController {
     private ConsultaCarrosUC consultaCarrosUC;
     private CadastraCarroUC cadastraCarroUC;
     private ConsultaPilotosUC consultaPilotosUC;
     private CadastraPilotoUC cadastraPilotoUC;
     private ConsultaCorridasUC consultaCorridasUC;
     private CadastraCorridaUC cadastraCorridaUC;
-    // private ConsultaEstatisticasUC consultaEstatisticasUC;
-    // private ConsultaPerformanceUC consultaPerformanceUC;
 
-    //@Autowired
-    // public CtrlCorridasController(ConsultaCarrosUC consultaCarrosUC, CadastraCarroUC cadastraCarroUC,
-    //                               ConsultaPilotosUC consultaPilotosUC, CadastraPilotoUC cadastraPilotoUC,
-    //                               ConsultaCorridasUC consultaCorridasUC, CadastraCorridaUC cadastraCorridaUC,
-    //                               ConsultaEstatisticasUC consultaEstatisticasUC, ConsultaPerformanceUC consultaPerformanceUC) {
-
-    public CtrlCorridasController(ConsultaCarrosUC consultaCarrosUC, CadastraCarroUC cadastraCarroUC,
-    ConsultaPilotosUC consultaPilotosUC, CadastraPilotoUC cadastraPilotoUC,
-    ConsultaCorridasUC consultaCorridasUC, CadastraCorridaUC cadastraCorridaUC) {
+    public CorridasController(ConsultaCarrosUC consultaCarrosUC, CadastraCarroUC cadastraCarroUC,
+            ConsultaPilotosUC consultaPilotosUC, CadastraPilotoUC cadastraPilotoUC,
+            ConsultaCorridasUC consultaCorridasUC, CadastraCorridaUC cadastraCorridaUC) {
 
         this.consultaCarrosUC = consultaCarrosUC;
         this.cadastraCarroUC = cadastraCarroUC;
@@ -81,7 +69,7 @@ public class CtrlCorridasController {
         cadastraCarroUC.run(carro);
         return true;
     }
-    
+
     @GetMapping("/corrida")
     @CrossOrigin(origins = "*")
     public List<Corrida> consultaCorridas() {
@@ -94,17 +82,5 @@ public class CtrlCorridasController {
         cadastraCorridaUC.run(placa, corrida);
         return true;
     }
-
-    // @GetMapping("/estatisticas")
-    // @CrossOrigin(origins = "*")
-    // public EstatisticasDTO estatisticas(@RequestParam final Integer distancia) {
-    //     return consultaEstatisticasUC.run(distancia);
-    // }
-
-    // @GetMapping("/aumentoPerformance")
-    // @CrossOrigin(origins = "*")
-    // public PerformanceDTO aumentoPerformance(@RequestParam final Integer distancia, @RequestParam final Integer ano) {
-    //     return consultaPerformanceUC.run(distancia, ano);
-    // }
 
 }

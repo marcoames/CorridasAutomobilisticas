@@ -1,125 +1,171 @@
-/* Basic reset */
+/* Resetting default styles */
 body,
 h1,
 h2,
+h3,
 ul,
-li {
+li,
+div,
+p {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+/* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 900px;
+    margin: 40px auto;
     padding: 20px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 30px;
+    color: #007BFF;
+    font-weight: 700;
 }
 
+/* GET and POST Request Sections */
 .section {
     margin-bottom: 40px;
 }
 
 .section h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #555;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #343a40;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
 }
 
-.btn {
+/* Request blocks for GET requests */
+.request-block {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.request-block h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.request-block p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+/* Adjust spacing for GET button and list */
+.request-block button {
+    display: block;
+    margin-bottom: 20px;
+    /* Adds space between the button and the list */
+}
+
+.request-block .list {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* Adds space between the button and the list */
+}
+
+/* Post Request Section */
+.post-block {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-block h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+.post-block form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-block label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.post-block input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.form-actions .btn {
+    width: 50%;
+    max-width: 200px;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1em;
     color: white;
     background-color: #007BFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-actions .btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Consistent button styling for both GET and POST requests */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* List styles */
 .list {
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f1f1f1;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.list li {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.list li:last-child {
-    border-bottom: none;
-}
-
-.list li strong {
-    display: block;
-    color: #333;
-    font-size: 1.1em;
-}
-
-.list li span {
-    color: #666;
-    font-size: 0.9em;
-}
-
-/* Additional CSS for Corrida section */
-.corrida {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #e9ecef;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.corrida-header {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.pilotos-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.pilotos-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.pilotos-list li:last-child {
-    border-bottom: none;
-}
-
-.pilotos-list li strong {
-    display: block;
-    color: #333;
-}
-
-.pilotos-list li span {
-    color: #666;
-    font-size: 0.9em;
 }

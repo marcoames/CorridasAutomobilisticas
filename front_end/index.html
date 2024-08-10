@@ -4,33 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Frontend</title>
+    <title>Racing API Frontend</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Racing API Frontend</h1>
+        <h1>Racing API Dashboard</h1>
 
-        <!-- Pilotos Section -->
-        <div id="pilotos" class="section">
-            <h2>Pilotos</h2>
-            <button class="btn" onclick="fetchPilotos()">Get Pilotos</button>
-            <ul id="pilotoList" class="list"></ul>
+        <!-- Get Section (GET requests) -->
+        <div class="consult-section">
+            <h2>GET REQUESTS</h2>
+
+            <!-- Pilotos Section -->
+            <div id="consult-pilotos" class="section request-block">
+                <h3>Pilotos</h3>
+                <p>Click the button below to fetch the list of pilotos from the API.</p>
+                <!-- Button below the form -->
+                <div class="form-actions">
+                    <button class="btn" onclick="fetchPilotos()">Get Pilotos</button>
+                </div>
+                <ul id="pilotoList" class="list"></ul>
+            </div>
+
+            <!-- Carros Section -->
+            <div id="consult-carros" class="section request-block">
+                <h3>Carros</h3>
+                <p>Click the button below to fetch the list of carros from the API.</p>
+                <!-- Button below the form -->
+                <div class="form-actions">
+                    <button class="btn" onclick="fetchCarros()">Get Carros</button>
+                </div>
+                <ul id="carroList" class="list"></ul>
+            </div>
+
+            <!-- Corridas Section -->
+            <div id="consult-corridas" class="section request-block">
+                <h3>Corridas</h3>
+                <p>Click the button below to fetch the list of corridas from the API.</p>
+                <!-- Button below the form -->
+                <div class="form-actions">
+                    <button class="btn" onclick="fetchCorridas()">Get Corridas</button>
+                </div>
+                <ul id="corridaList" class="list"></ul>
+            </div>
         </div>
 
-        <!-- Carros Section -->
-        <div id="carros" class="section">
-            <h2>Carros</h2>
-            <button class="btn" onclick="fetchCarros()">Get Carros</button>
-            <ul id="carroList" class="list"></ul>
-        </div>
+        <!-- POST Request Section -->
+        <div id="postRequests" class="section">
+            <h2>POST Requests</h2>
 
-        <!-- Corridas Section -->
-        <div id="corridas" class="section">
-            <h2>Corridas</h2>
-            <button class="btn" onclick="fetchCorridas()">Get Corridas</button>
-            <ul id="corridaList" class="list"></ul>
+            <!-- Piloto POST Request -->
+            <div class="post-block">
+                <h3>Create a Piloto</h3>
+                <form id="pilotoForm">
+                    <label for="pilotoNome">Nome:</label>
+                    <input type="text" id="pilotoNome" name="nome" required>
+
+                    <label for="pilotoIdade">Idade:</label>
+                    <input type="number" id="pilotoIdade" name="idade" required>
+
+                    <label for="pilotoNacionalidade">Nacionalidade:</label>
+                    <input type="text" id="pilotoNacionalidade" name="nacionalidade" required>
+
+                    <!-- Button below the form -->
+                    <div class="form-actions">
+                        <button class="btn" type="submit">Create Piloto</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Carro POST Request -->
+            <div class="post-block">
+                <h3>Create a Carro</h3>
+                <form id="carroForm">
+                    <label for="carroModelo">Modelo:</label>
+                    <input type="text" id="carroModelo" name="modelo" required>
+
+                    <label for="carroMarca">Marca:</label>
+                    <input type="text" id="carroMarca" name="marca" required>
+
+                    <label for="carroAno">Ano:</label>
+                    <input type="number" id="carroAno" name="ano" required>
+
+                    <!-- Button below the form -->
+                    <div class="form-actions">
+                        <button class="btn" type="submit">Create Carro</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Corrida POST Request -->
+            <div class="post-block">
+                <h3>Create a Corrida</h3>
+                <form id="corridaForm">
+                    <label for="corridaData">Data:</label>
+                    <input type="date" id="corridaData" name="data" required>
+
+                    <label for="corridaLocal">Local:</label>
+                    <input type="text" id="corridaLocal" name="local" required>
+
+                    <!-- Button below the form -->
+                    <div class="form-actions">
+                        <button class="btn" type="submit">Create Corrida</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

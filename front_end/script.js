@@ -12,7 +12,7 @@ function fetchPilotos() {
                 const li = document.createElement('li');
                 const carModels = piloto.carros.map(carro => carro.modelo).join(', ');
 
-                li.textContent = `${piloto.nome} (${piloto.idade} years old, ${piloto.nacionalidade}) - Cars: ${carModels}`;
+                li.textContent = `${piloto.nome} (${piloto.idade} years old, ${piloto.nacionalidade}) - Car: ${carModels}`;
                 pilotoList.appendChild(li);
             });
         })
@@ -50,7 +50,10 @@ function fetchCorridas() {
 
                 const corridaHeader = document.createElement('div');
                 corridaHeader.classList.add('corrida-header');
-                corridaHeader.innerHTML = `<strong>Date:</strong> ${corrida.data} <strong>Location:</strong> ${corrida.local}`;
+                corridaHeader.innerHTML = `
+            <div><strong>Date:</strong> ${corrida.data}</div>
+            <div><strong>Location:</strong> ${corrida.local}</div>
+          `;
                 corridaDiv.appendChild(corridaHeader);
 
                 const pilotosList = document.createElement('ul');
@@ -58,10 +61,14 @@ function fetchCorridas() {
 
                 corrida.pilotos.forEach(piloto => {
                     const pilotoItem = document.createElement('li');
-                    const carModels = piloto.carros.map(carro => carro.modelo).join(', ');
                     pilotoItem.innerHTML = `
-              <strong>${piloto.nome}</strong> (${piloto.idade} years old, ${piloto.nacionalidade})<br>
-              <span>Cars: ${carModels}</span>
+              <div class="piloto-info">
+                <strong>${piloto.nome}</strong>
+                <div>(${piloto.idade} years old, ${piloto.nacionalidade})</div>
+              </div>
+              <div class="car-info">
+                Car: ${piloto.carros.map(carro => carro.modelo).join(', ')}
+              </div>
             `;
                     pilotosList.appendChild(pilotoItem);
                 });
