@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8080/ctrlCorridas';
+const API_BASE_URL = 'http://localhost:8080/Corridas';
 
 // Function to fetch and display Pilotos
 function fetchPilotos() {

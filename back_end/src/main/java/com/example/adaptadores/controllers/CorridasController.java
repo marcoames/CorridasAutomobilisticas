@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/ctrlCorridas")
+@RequestMapping("/Corridas")
 public class CorridasController {
     private ConsultaCarrosUC consultaCarrosUC;
     private CadastraCarroUC cadastraCarroUC;
@@ -40,8 +40,7 @@ public class CorridasController {
         this.cadastraPilotoUC = cadastraPilotoUC;
         this.consultaCorridasUC = consultaCorridasUC;
         this.cadastraCorridaUC = cadastraCorridaUC;
-        // this.consultaEstatisticasUC = consultaEstatisticasUC;
-        // this.consultaPerformanceUC = consultaPerformanceUC;
+
     }
 
     @GetMapping("/piloto")
